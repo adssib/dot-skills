@@ -22,23 +22,6 @@ Think of it like this:
 
 ---
 
-## Skills
-
-### `steering/`
-
-**The core skill.** This is how I steer Claude in any project — my working style, my learning philosophy, how I want code delivered.
-
-It handles:
-- Generating `CLAUDE.md` files (how Claude works with me)
-- Generating `PROJECT.md` files (architecture and spec)
-- Setting the right tone: teach, don't just ship
-- Step-by-step chunk workflow with review gates
-- Developer-writes-logic, Claude-writes-boilerplate split
-
-**When to use:** At the start of any new project. Tell Claude to use this skill and give it your project idea — it'll generate both files tailored to the project.
-
----
-
 ## Repo Structure
 
 ```
