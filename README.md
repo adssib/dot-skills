@@ -16,8 +16,8 @@ Think of it like this:
 
 | dotfiles | dotskills |
 |----------|-----------|
-| `.bashrc` configures your terminal | `steering/` configures your AI sessions |
-| `.gitconfig` sets your git preferences | `project-init/` sets your project scaffolding style |
+| `.bashrc` configures your terminal | skills configure your AI sessions |
+| `.gitconfig` sets your git preferences | `project-setup/` sets your project scaffolding style |
 | Portable across machines | Portable across projects and conversations |
 
 ---
@@ -27,47 +27,44 @@ Think of it like this:
 ```
 dotskills/
 ├── README.md
-├── install.sh                 # Adds a symlink of the skills folder to a destination folder
-├── project-setup/             # Session & project configuration skill
-│   ├── SKILL.md               # Main skill instructions
+├── SKILLS.md                  # Index of all available skills
+├── install.sh                 # Symlinks this repo into a project so Claude can read it
+├── project-setup/             # Core skill: scaffolds CLAUDE.md, PROJECT.md, git, and docs
+│   ├── SKILL.md
 │   └── references/
 │       ├── claude-md.md       # Template + rules for generating CLAUDE.md files
 │       └── project-md.md      # Template + rules for generating PROJECT.md files
-│
-├── git-setup/                 # Git conventions & workflow skill
-│   └── SKILL.md               # Branching, commits, rebase policy, .gitignore
-│
-├── docs/                      # Documentation conventions skill
-│   └── SKILL.md               # PlantUML sequence diagrams, naming, when to update
-│
-└── (future skills go here)
+├── git-setup/                 # Git conventions: branching, commits, .gitignore
+│   └── SKILL.md
+└── docs/                      # Documentation conventions: PlantUML diagrams, what to document
+    └── SKILL.md
 ```
 
 ---
 
 ## How to Use
 
-### With Claude Code
-
-Drop the skill into your Claude Code skills directory or reference it directly:
+### Install into a project
 
 ```bash
-# Clone into your skills directory
-git clone https://github.com/adssib/dot-skills.git
-chmod +x dot-skills/install.sh
-
-# Install all skills into a project
-./dot-skills/install.sh ~/projects/atlas-mcp
+# Install all skills
+./install.sh ~/projects/atlas-mcp
 
 # Or install specific skills only
-./dot-skills/install.sh ~/projects/atlas-mcp git-setup docs
+./install.sh ~/projects/atlas-mcp git-setup docs
 ```
 
-Skills are symlinked into `.claude/skills/` — Claude Code picks them up automatically on next session.
+This symlinks each skill into `~/projects/atlas-mcp/.claude/skills/` — the path Claude Code reads for project-level skills. It also adds `.claude/skills/` to the project's `.gitignore` automatically.
 
-Then in any project, tell Claude:
+Then in any session in that project, tell Claude:
 
-> "Use the project-setup skill to set up this project. Here's what I'm building: ..."
+> "Use the project-setup skill to scaffold this project."
+
+### Use a skill directly (no install)
+
+In any Claude Code session, reference the skill by path:
+
+> "Read `~/git-repos/dot-skills/project-setup/SKILL.md` and use it to set up this project."
 
 ---
 
@@ -89,11 +86,11 @@ Same reason people share dotfiles (I do too). Maybe my workflow helps someone el
 
 ## Future Skills (ideas)
 
-- `code-review/` — How I want Claude to review my PRs
 - `debug/` — My preferred debugging workflow (reproduce → isolate → fix → test)
-- `docs/` — How I want documentation written (tone, structure, examples)
+- `review/` — How I want Claude to review my PRs
 - `refactor/` — Rules for when and how to refactor vs rewrite
-- Have a better idea? Drop it in an issue! 
+- `test/` — When to write tests, what to test, what not to mock
+- Have a better idea? Drop it in an issue!
 
 ---
 
