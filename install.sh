@@ -63,6 +63,14 @@ done
 
 echo ""
 echo "$installed skill(s) installed into $SKILLS_TARGET"
-echo ""
-echo "Add to your .gitignore:"
-echo "  .claude/skills/"
+
+# Add .claude/skills/ to .gitignore if not already there
+GITIGNORE="$PROJECT_DIR/.gitignore"
+IGNORE_ENTRY=".claude/skills/"
+
+if grep -qF "$IGNORE_ENTRY" "$GITIGNORE" 2>/dev/null; then
+    echo ".gitignore already has $IGNORE_ENTRY"
+else
+    echo "$IGNORE_ENTRY" >> "$GITIGNORE"
+    echo "Added $IGNORE_ENTRY to .gitignore"
+fi
