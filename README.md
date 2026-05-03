@@ -28,11 +28,17 @@ Think of it like this:
 dotskills/
 ├── README.md
 ├── install.sh                 # Adds a symlink of the skills folder to a destination folder
-├── steering/                  # Session & project configuration skill
+├── project-setup/             # Session & project configuration skill
 │   ├── SKILL.md               # Main skill instructions
 │   └── references/
 │       ├── claude-md.md       # Template + rules for generating CLAUDE.md files
 │       └── project-md.md      # Template + rules for generating PROJECT.md files
+│
+├── git-setup/                 # Git conventions & workflow skill
+│   └── SKILL.md               # Branching, commits, rebase policy, .gitignore
+│
+├── docs/                      # Documentation conventions skill
+│   └── SKILL.md               # PlantUML sequence diagrams, naming, when to update
 │
 └── (future skills go here)
 ```
@@ -47,14 +53,21 @@ Drop the skill into your Claude Code skills directory or reference it directly:
 
 ```bash
 # Clone into your skills directory
-git clone https://github.com/adssib/dots-kills.git 
+git clone https://github.com/adssib/dot-skills.git
 chmod +x dot-skills/install.sh
-./dot-skills/install.sh atlas-mcp/
+
+# Install all skills into a project
+./dot-skills/install.sh ~/projects/atlas-mcp
+
+# Or install specific skills only
+./dot-skills/install.sh ~/projects/atlas-mcp git-setup docs
 ```
+
+Skills are symlinked into `.claude/skills/` — Claude Code picks them up automatically on next session.
 
 Then in any project, tell Claude:
 
-> "Use the steering skill to set up this project. Here's what I'm building: ..."
+> "Use the project-setup skill to set up this project. Here's what I'm building: ..."
 
 ---
 
