@@ -36,7 +36,9 @@ dotskills/
 │       └── project-md.md      # Template + rules for generating PROJECT.md files
 ├── git-setup/                 # Git conventions: branching, commits, .gitignore
 │   └── SKILL.md
-└── docs/                      # Documentation conventions: PlantUML diagrams, what to document
+├── docs/                      # Documentation conventions: PlantUML diagrams, what to document
+│   └── SKILL.md
+└── readme/                    # README generation: sections by project type, placeholder patterns
     └── SKILL.md
 ```
 

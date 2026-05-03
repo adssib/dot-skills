@@ -72,7 +72,14 @@ Read `../git-setup/SKILL.md` and apply it to the project:
 - Confirm branching strategy — solo or team? (see git-setup for rules)
 - Remind the developer of the commit format: `feat(component): what + why`
 
-### Step 5: Set Up Docs Structure
+### Step 5: Generate README
+
+Read `../readme/SKILL.md` and apply it to the project:
+- Identify the project type (portfolio, open-source, team)
+- Generate a README.md with the right sections for that type
+- Use placeholders for anything not yet set up (CI badges, demo GIF, deployment URLs)
+
+### Step 6: Set Up Docs Structure
 
 Read `../docs/SKILL.md` and apply it to the project:
 - Create a `docs/` folder
@@ -80,9 +87,9 @@ Read `../docs/SKILL.md` and apply it to the project:
 - Generate those PlantUML diagrams using the standard skinparam block
 - Number them in logical reading order (`01_`, `02_`, ...)
 
-### Step 6: Present and Iterate
+### Step 7: Present and Iterate
 
-Show everything to the developer — CLAUDE.md, PROJECT.md, .gitignore, and any diagrams generated.
+Show everything to the developer — CLAUDE.md, PROJECT.md, README.md, .gitignore, and any diagrams generated.
 Ask if anything needs adjusting: tone, chunk size, missing flows, gitignore entries, etc.
 
 ## Core Principles
